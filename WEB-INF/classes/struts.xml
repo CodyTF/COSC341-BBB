@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+    <constant name="struts.ui.theme" value="simple" />
+
+	<package name="basicstruts2" extends="struts-default">
+	    <global-results>
+    		<result name="start">bbb2.jsp</result>
+    		<result name="regCust">regCust2.jsp</result>
+    		<result name="getUpdateCust" type="redirect">getUpdateCust.action</result>
+    		<result name="displayUpdateCust">updateCust2.jsp</result>
+    		<result name="logon">custLogin2.jsp</result>
+    		<result name="logonAdmin">adminLogin2.jsp</result>
+    		<result name="search">search2.jsp</result>
+    		<result name="select" type="redirect">select.action</result> 
+    		<result name="displayList">displayList2.jsp</result>
+    		<result name="getCart" type="redirect">getCart.action</result>
+    		<result name="displayCart">displayCart2.jsp</result>
+    		<result name="checkout">checkout2.jsp</result>
+    		<result name="identCust">identCust2.jsp</result>
+    		<result name="orderPlaced">receipt2.jsp</result>
+    		<result name="adminMenu">adminMenu2.jsp</result>
+    		<result name="reportMenu">reportMenu2.jsp</result>
+    		<result name="bookNotFound">bookNotFound2.jsp</result>
+    		<result name="getAdminProfile" type="redirect">getAdminProfile.action</result>
+    		<result name="displayUpdateAdmin">updateAdmin2.jsp</result>
+    		<result name="getInsertBook" type="redirect">getInsertBook.action</result>
+    		<result name="getRestockOrders" type="redirect">getRestockOrders.action</result>
+    		<result name="displayRestock">displayRestock2.jsp</result>
+    		<result name="displayBook">displayBook2.jsp</result>
+    		<result name="displayBookReview">displayBookReviews2.jsp</result>
+    		<result name="displaySalesByCategory">displaySalesByCategory2.jsp</result>
+    		<result name="displayStockByCategory">displayStockByCategory2.jsp</result>
+    		<result name="displayBuyersByCategory">displayBuyersByCategory2.jsp</result>
+    		<result name="displayExpensiveBooks">displayExpensiveBooks2.jsp</result>
+    		<result name="displayTopSellers">displayTopSellers2.jsp</result>
+    		<result name="displayStatistics">displayStatistics2.jsp</result>
+	    </global-results>
+
+        <!-- If no class attribute is specified the framework will assume success and 
+        render the result index.jsp -->
+        <!-- If no name value for the result node is specified the success value is the default -->
+		<action name="index">
+			<result>/bbb2.jsp</result>
+		</action>
+		
+		<action name="selectStart" class="edu.iup.cosc341.bbb.actions.SelectStartAction" method="execute">
+		</action>
+
+		<action name="logon" class="edu.iup.cosc341.bbb.actions.LogonAction" method="execute">
+			<result name="input">/custLogin2.jsp</result>
+		</action>
+
+		<action name="identLogon" class="edu.iup.cosc341.bbb.actions.LogonAction" method="execute">
+			<result name="input">/identCust2.jsp</result>
+		</action>
+
+		<action name="getAdminProfile" class="edu.iup.cosc341.bbb.actions.AdminAction" method="getAdminProfile">
+		</action>
+
+		<action name="updateAdmin" class="edu.iup.cosc341.bbb.actions.UpdateAdminAction" method="updateAdminProfile">
+			<result name="input">/updateAdmin2.jsp</result>
+		</action>
+
+		<action name="getUpdateCust" class="edu.iup.cosc341.bbb.actions.CustomerAction" method="getCustomer">
+		</action>
+
+		<action name="saveRegCust" class="edu.iup.cosc341.bbb.actions.UpdateCustomerAction" method="regCustomer">
+			<result name="input">/regCust2.jsp</result>
+		</action>
+
+		<action name="updateCust" class="edu.iup.cosc341.bbb.actions.UpdateCustomerAction" method="updateCustomer">
+			<result name="input">/updateCust2.jsp</result>
+		</action>
+		
+		<action name="logonAdmin" class="edu.iup.cosc341.bbb.actions.LogonAdminAction" method="execute">
+			<result name="input">/adminLogin2.jsp</result>
+		</action>
+		
+		<action name="startSearch" class="edu.iup.cosc341.bbb.actions.SearchBookAction" method="execute">
+			<result name="input">/search2.jsp</result>
+		</action>
+		
+		<action name="getInsertBook" class="edu.iup.cosc341.bbb.actions.BookAction" method="getForInsert">
+			<result name="input">/displayBook2.jsp</result>
+		</action>
+		
+		<action name="getUpdateBook" class="edu.iup.cosc341.bbb.actions.BookAction" method="getForUpdate">
+			<result name="input">/displayBook2.jsp</result>
+		</action>
+		
+		<action name="insertUpdateBook" class="edu.iup.cosc341.bbb.actions.InsertUpdateBookAction" method="insertUpdate">
+			<result name="input">/displayBook2.jsp</result>
+		</action>
+		
+		<action name="reposition" class="edu.iup.cosc341.bbb.actions.RepositionAction" method="execute">
+		</action>
+
+		<action name="getCart" class="edu.iup.cosc341.bbb.actions.GetCartAction" method="execute">
+		</action>
+		
+		<action name="updateCart" class="edu.iup.cosc341.bbb.actions.UpdateCartAction" method="execute">
+		</action>
+		
+		<action name="confirm" class="edu.iup.cosc341.bbb.actions.ConfirmAction" method="execute">
+			<result name="input">/checkout2.jsp</result>
+		</action>
+		
+		<action name="getBookReview" class="edu.iup.cosc341.bbb.actions.GetBookReviewAction" method="execute">
+		</action>
+
+		<action name="getRestockOrders" class="edu.iup.cosc341.bbb.actions.RestockOrderAction" method="getRestockOrders">
+		</action>
+
+		<action name="placeRestockOrder" class="edu.iup.cosc341.bbb.actions.RestockOrderAction" method="placeRestockOrder">
+		</action>
+
+		<action name="getReport" class="edu.iup.cosc341.bbb.actions.GetReportAction" method="execute">
+		</action>
+
+	</package>
+
+</struts>

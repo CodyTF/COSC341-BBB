@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/ojdbc14_g.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-logging-api-1.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/freemarker-2.3.16.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/javassist-3.7.ga.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/ognl-3.0.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts2-core-2.2.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/xwork-core-2.2.1.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/struts.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

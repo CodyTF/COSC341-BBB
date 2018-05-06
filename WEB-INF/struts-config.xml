@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!--
+     This is the Struts configuration file for BBB application
+-->
+
+<struts-config>
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+    <!-- Start form bean -->
+    <form-bean name="startForm"
+               type="edu.iup.cosc341.bbb.StartForm"/>
+               
+    <!-- Logon form bean -->
+    <form-bean name="logonForm"
+               type="edu.iup.cosc341.bbb.LogonForm"/>
+
+    <!-- Customer registration form bean -->
+    <form-bean name="custRegForm"
+               type="edu.iup.cosc341.bbb.CustRegForm"/>
+
+    <!-- Search book form bean -->
+    <form-bean name="searchBookForm"
+               type="edu.iup.cosc341.bbb.SearchBookForm"/>
+               
+    <!-- Insert/update book form bean -->
+    <form-bean name="bookForm"
+               type="edu.iup.cosc341.bbb.BookForm"/>
+               
+    <!-- Insert/update book form bean -->
+    <form-bean name="getBookForm"
+               type="edu.iup.cosc341.bbb.GetBookForm"/>
+               
+    <!-- Restock order form bean -->
+    <form-bean name="restockOrderForm"
+               type="edu.iup.cosc341.bbb.RestockOrderForm"/>
+               
+    <!-- Insert/update book form bean -->
+    <form-bean name="bookForm"
+               type="edu.iup.cosc341.bbb.BookForm"/>
+
+    <!-- Update cart form bean -->
+    <form-bean name="updateCartForm"
+               type="edu.iup.cosc341.bbb.UpdateCartForm"/>
+               
+    <!-- Update confirm order form bean -->
+    <form-bean name="confirmForm"
+               type="edu.iup.cosc341.bbb.ConfirmForm"/>
+               
+    <!-- Reposition to another part of the website form bean -->
+    <form-bean name="repositionForm"
+               type="edu.iup.cosc341.bbb.RepositionForm"/>
+               
+    <!-- Administrator profile form bean -->
+    <form-bean name="adminProfileForm"
+               type="edu.iup.cosc341.bbb.AdminProfileForm"/>
+
+  </form-beans>
+
+
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward   name="start"                     path="/index.html"/>
+    <forward   name="regCust"                   path="/regCust.jsp"/>
+    <forward   name="getUpdateCust"             path="/getUpdateCust.do"/>
+    <forward   name="displayUpdateCust"         path="/updateCust.jsp"/>
+    <forward   name="logon"                     path="/custLogin.jsp"/>
+    <forward   name="logonAdmin"                path="/adminLogin.jsp"/>
+    <forward   name="search"                    path="/search.jsp"/>
+    <forward   name="select"                    path="/select.do"/> 
+    <forward   name="displayList"               path="/displayList.jsp"/>
+    <forward   name="getCart"                   path="/getCart.do"/>
+    <forward   name="displayCart"               path="/displayCart.jsp"/>
+    <forward   name="checkout"                  path="/checkout.jsp"/>
+    <forward   name="identCust"                 path="/identCust.jsp"/>
+    <forward   name="orderPlaced"               path="/receipt.jsp"/>
+    <forward   name="adminMenu"                 path="/adminMenu.jsp"/>
+    <forward   name="reportMenu"                path="/reportMenu.jsp"/>
+    <forward   name="getAdminProfile"           path="/getAdminProfile.do"/>
+    <forward   name="displayUpdateAdmin"        path="/updateAdmin.jsp"/>
+    <forward   name="getInsertBook"             path="/getInsertBook.do"/>
+    <forward   name="getRestockOrders"          path="/getRestockOrders.do"/>
+    <forward   name="displayRestock"            path="/displayRestock.jsp"/>
+    <forward   name="displayBook"               path="/displayBook.jsp"/>
+    <forward   name="displayBookReview"         path="/displayBookReviews.jsp"/>
+    <forward   name="displaySalesByCategory"    path="/displaySalesByCategory.jsp"/>
+    <forward   name="displayStockByCategory"    path="/displayStockByCategory.jsp"/>
+    <forward   name="displayBuyersByCategory"   path="/displayBuyersByCategory.jsp"/>
+    <forward   name="displayExpensiveBooks"     path="/displayExpensiveBooks.jsp"/>
+    <forward   name="displayTopSellers"         path="/displayTopSellers.jsp"/>
+    <forward   name="displayStatistics"         path="/displayStatistics.jsp"/>
+  </global-forwards>
+
+
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+  
+    <!-- Select start action  -->
+    <action    path="/selectStart"
+               type="edu.iup.cosc341.bbb.SelectStartAction"
+               name="startForm"
+               scope="request"
+               input="selectStart"
+               validate="false">
+    </action>
+    
+    <action    path="/logon"
+               type="edu.iup.cosc341.bbb.LogonAction"
+               name="logonForm"
+               scope="request"
+               input="logon"
+               validate="false">
+    </action>
+    
+    <action    path="/logonAdmin"
+               type="edu.iup.cosc341.bbb.LogonAdminAction"
+               name="logonForm"
+               scope="request"
+               input="logonAdmin"
+               validate="false">
+    </action>
+    
+    <action    path="/identLogon"
+               type="edu.iup.cosc341.bbb.LogonAction"
+               name="logonForm"
+               scope="request"
+               input="identCust"
+               validate="false">
+    </action>
+    
+    <action    path="/saveRegCust"
+               type="edu.iup.cosc341.bbb.RegCustAction"
+               name="custRegForm"
+               scope="request"
+               input="regCust"
+               validate="true">
+    </action>
+    
+    <action    path="/getUpdateCust"
+               type="edu.iup.cosc341.bbb.GetCustProfileAction"
+               name="custRegForm"
+               scope="request"
+               input="getUpdateCust"
+               validate="false">
+    </action>
+    
+    <action    path="/updateCust"
+               type="edu.iup.cosc341.bbb.UpdateCustAction"
+               name="custRegForm"
+               scope="request"
+               input="displayUpdateCust"
+               validate="true">
+    </action>
+    
+    <action    path="/startSearch"
+               type="edu.iup.cosc341.bbb.SearchBookAction"
+               name="searchBookForm"
+               scope="session"
+               input="search"
+               validate="false">
+    </action>
+
+    <action    path="/reposition"
+               type="edu.iup.cosc341.bbb.RepositionAction"
+               name="repositionForm"
+               scope="request"
+               input="search"
+               validate="false">
+    </action>
+
+    <action    path="/getCart"
+               type="edu.iup.cosc341.bbb.GetCartAction"
+               name="updateCartForm"
+               scope="session"
+               input="displayCart"
+               validate="false">
+    </action>
+    
+    <action    path="/updateCart"
+               type="edu.iup.cosc341.bbb.UpdateCartAction"
+               name="updateCartForm"
+               scope="session"
+               input="displayCart"
+               validate="true">
+    </action>
+    
+    <action    path="/confirm"
+               type="edu.iup.cosc341.bbb.ConfirmAction"
+               name="confirmForm"
+               scope="request"
+               input="checkout"
+               validate="true">
+    </action>
+    
+    <action    path="/getAdminProfile"
+               type="edu.iup.cosc341.bbb.GetAdminProfileAction"
+               name="adminProfileForm"
+               scope="session"
+               input="adminProfile"
+               validate="false">
+    </action>
+    
+    <action    path="/updateAdmin"
+               type="edu.iup.cosc341.bbb.UpdateAdminAction"
+               name="adminProfileForm"
+               scope="session"
+               input="displayUpdateAdmin"
+               validate="true">
+    </action>
+ 
+    <action    path="/getInsertBook"
+               type="edu.iup.cosc341.bbb.GetInsertBookAction"
+               name="bookForm"
+               scope="request"
+               input="displayBook"
+               validate="false">
+    </action>
+    
+    <action    path="/insertBook"
+               type="edu.iup.cosc341.bbb.InsertUpdateBookAction"
+               name="bookForm"
+               scope="request"
+               input="displayBook"
+               validate="true">
+    </action>
+    
+    <action    path="/getUpdateBook"
+               type="edu.iup.cosc341.bbb.GetUpdateBookAction"
+               name="bookForm"
+               scope="request"
+               input="displayBook"
+               validate="false">
+    </action>
+    
+    <action    path="/getBookReview"
+               type="edu.iup.cosc341.bbb.GetBookReviewAction"
+               name="getBookForm"
+               scope="request"
+               validate="false">
+    </action>
+    
+    <action    path="/updateBook"
+               type="edu.iup.cosc341.bbb.InsertUpdateBookAction"
+               name="bookForm"
+               scope="request"
+               input="displayBook"
+               validate="true">
+    </action>
+    
+    <action    path="/getRestockOrders"
+               type="edu.iup.cosc341.bbb.GetRestockOrdersAction"
+               name="restockOrderForm"
+               scope="session"
+               input="displayRestock"
+               validate="false">
+    </action>
+    
+    <action    path="/placeRestockOrder"
+               type="edu.iup.cosc341.bbb.PlaceRestockOrderAction"
+               name="restockOrderForm"
+               scope="session"
+               input="displayRestock"
+               validate="true">
+    </action>
+
+    <action    path="/getReport"
+               type="edu.iup.cosc341.bbb.GetReportAction"
+               name="startForm"
+               scope="request"
+               validate="false">
+    </action>
+  </action-mappings>
+
+
+  <!-- ========== Controller Configuration ================================ -->
+
+  <controller>
+    <!-- The "input" parameter on "action" elements is the name of a
+         local or global "forward" rather than a module-relative path -->
+    <set-property property="inputForward" value="true"/>
+  </controller>
+
+
+  <!-- ========== Message Resources Definitions =========================== -->
+
+  <message-resources
+    parameter="edu.iup.cosc341.bbb.ApplicationResources"/>
+
+</struts-config>
